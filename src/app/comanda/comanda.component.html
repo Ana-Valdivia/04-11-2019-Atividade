@@ -7,10 +7,10 @@
           <div id ="comanda">
     
             <h1>COMANDA</h1>
-            <form class="mt-5"[formGroup]="formCliente">
+            <form class="mt-5"[formGroup]="formCliente"(ngSubmit)="onSubmit()">
             
               <p>
-                <label> Chopp</label>
+                <label> Choop</label>
                 <input type="text" name="inChoop"/>
               </p>
               <p>
@@ -36,13 +36,15 @@
               <p class="comanda button">
     
               <input type="submit" value="Registrar"/>
-    
+
+              
               </p>
     
     
             </form >
             
             <p class="about">Ana e Victor </p>
+  
     
     
           </div>
