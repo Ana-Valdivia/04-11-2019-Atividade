@@ -1,56 +1,59 @@
 <div class="container">
-    <span class="container=header">Pizzaria Horacio</span>
-    <div id="container=demo">
-    
-        <div id="wrapper">
-    
-          <div id ="comanda">
-    
-            <h1>COMANDA</h1>
-            <form class="mt-5"[formGroup]="formCliente"(ngSubmit)="onSubmit()">
-            
-              <p>
-                <label> Choop</label>
-                <input type="text" name="inChoop"/>
-              </p>
-              <p>
-                  <label> Pizza</label>
-                  <input type="text" name="inPizza"/>
-                </p>
-                <p>
-                    <label> Recheio</label>
-                    <input type="text" name="inRecheio"/>
-                  </p>
-                  <p>
-                      <label> Pessoas</label>
-                      <input type="text" name="inPessoas"/>
-                    </p>
+  <span class="container=header">Pizzaria Horacio</span>
+  <div id="container=demo">
+
+    <div id="wrapper">
+
+      <div id="comanda">
+
+        <h1>COMANDA</h1>
+        <form class="mt-5" [formGroup]="formCliente" (ngSubmit)="onProcessar()">
+
+          <p>
+            <label> Choop</label>
+
+            <input type="text" name="inChopp" formControlName="inChopp">
+          </p>
+          <p>
+            <label> Pizza</label>
+          <input type="text" name="inPizza" formControlName="inPizza">
+          </p>
+          <p>
+            <label> Recheio</label>
+
+            <input type="text" name="inRecheio" formControlName="inRecheio">
+          </p>
+          <p>
+            <label> Pessoas</label>
+
+            <input type="text" name="inPessoa" formControlName="inPessoa">
+          </p>
 
 
-              <p class="Keepcomanda">
-    
-                <input type="checkbox" name="inServico"/>
-                <label>Taxa de serviço</label>
-    
-              </p>
-              <p class="comanda button">
-    
-              <input type="submit" value="Registrar"/>
+          <p class="Keepcomanda">
 
-              
-              </p>
-    
-    
-            </form >
-            
-            <p class="about">Ana e Victor </p>
-  
-    
-    
-          </div>
-    
-    
-        </div>
-    
-    
+            <input type="checkbox" name="inServico" formControlName="inServico">
+            <label>Taxa de serviço</label>
+
+          </p>
+          <p class="comanda button">
+
+            <input type="submit" value="Registrar" />
+
+
+          </p>
+
+
+        </form>
+
+        <p class="about">Ana e Victor </p>
+
+
+
+      </div>
+
+
     </div>
+
+
+  </div>

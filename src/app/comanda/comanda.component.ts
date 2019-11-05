@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
-
 @Component({
   selector: 'has-comanda',
   templateUrl: './comanda.component.html',
@@ -12,52 +11,47 @@ export class ComandaComponent implements OnInit {
   formCliente: FormGroup;
 
   constructor(public formBuilder: FormBuilder) { }
- 
-
-  
 
   ngOnInit() {
-
-    this.formCliente =this.formBuilder.group({
-       inChoop :this.formBuilder.control(''),
-       inPizza :this.formBuilder.control(''),
-       inRecheio :this.formBuilder.control(''),
-       inPessoas :this.formBuilder.control(''),
-       
-    })
-
+    this.formCliente = this.formBuilder.group({
+      inServico : this.formBuilder.control(true),
+      inChopp : this.formBuilder.control(''),
+      inPizza : this.formBuilder.control(''),
+      inRecheio : this.formBuilder.control(''),
+      inPessoa : this.formBuilder.control('')
+      })
   }
-  onProcessar(){
 
-    let totalChopp:number =   this.formCliente.value.chopp * 7.30;
-    let totalPizza:number =   this.formCliente.value.pizza * 31.50;
-    let totalRecheio:number =   this.formCliente.value.recheio * 5.90;
-    let totalPessoa:number =   this.formCliente.value.pessoa;
-    let valorTaxa: number = 0;   
+  onSubmit() {
+    console.log(this.formCliente.value);
+    }
 
-    let totalTotal: number = totalChopp + totalPizza + totalRecheio;
+    onProcessar(){
 
-    let resulTaxa: boolean = this.formCliente.value.taxaservico;
+  let totalChopp: number = this.formCliente.value.inChopp * 7.30;
+  let totalPizza: number = this.formCliente.value.inPizza * 31.50;
+  let totalRecheio: number = this.formCliente.value.inRecheio * 5.90;
+  let totalPessoas: number = this.formCliente.value.inPessoa;
+  let valorTaxa: number = 0;
+
+  let totalCalculo : number = totalChopp + totalPizza + totalRecheio ;
+
+let resulTaxa: boolean = this.formCliente.value.inServico;
 
     if(resulTaxa == true)
     {
-        valorTaxa = totalTotal * 0.1;        
-        
+        valorTaxa = totalCalculo * 0.1;
     }
     else
     {
       valorTaxa = 0;
-    
+    }
+    let totalAPagar: number = totalCalculo + valorTaxa;
+    let porPessoa: number = totalAPagar / totalPessoas;
+
+    alert(`Total: ${totalCalculo.toFixed(2)} \nValor Taxa: ${valorTaxa.toFixed(2)} \nTotal com Taxa: ${totalAPagar.toFixed(2)} \nTotal Por pessoa: ${porPessoa.toFixed(2)}`);
+ 
+  
     }
 
-
-    let totalAPagar: number = totalTotal + valorTaxa;
-    let porPessoa: number = totalAPagar / totalPessoa;
-
-    alert(`Total: ${totalTotal} \n Valor Taxa: ${valorTaxa} \nTotal com Taxa: ${totalAPagar} \nTotal Por pessoa: ${porPessoa}`);
-
-
-  
-  }
-     
 }
