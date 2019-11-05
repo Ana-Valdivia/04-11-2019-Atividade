@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+
 
 @Component({
   selector: 'has-comanda',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comanda.component.css']
 })
 export class ComandaComponent implements OnInit {
+  
+  formCliente: FormGroup;
 
-  constructor() { }
+  constructor(public formBuilder: FormBuilder) { }
+ 
+
+  
 
   ngOnInit() {
   }
